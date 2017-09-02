@@ -1,0 +1,15 @@
+[yyyy-mm]-HC-[rows].dat    Hours,Close   without Header by choose (fortran) from HCHL
+[yyyy-mm]-HCHL-[rows].dat  Hours,Close,High,Low   by HCHL.jl from Ticks
+[yyyy-mm]-HH-[rows].dat    Hours,High    without Header by choose (fortran) from HCHL
+[yyyy-mm]-HL-[rows].dat    Hours,Low     without Header by choose (fortran) from HCHL
+[yyyy-mm]-HM-[rows].dat    Hours,Mode    without Header by choose (fortran) from HMSVT
+[yyyy-mm]-HMSVT-[rows].dat Hours,Mode,Scale,Volume,Ticks   by HMSVT.jl from Ticks
+[yyyy-mm]-MC-[rows].dat    Minutes,Close without Header by choose (fortran) from MCHL
+[yyyy-mm]-MCHL-[rows].dat  Minutes,Close,High,Low by MCHL.jl from Ticks
+[yyyy-mm]-MH-[rows].dat    Minutes,High  without Header by choose (fortran) from MCHL
+[yyyy-mm]-ML-[rows].dat    Minutes,Low   without Header by choose (fortran) from MCHL
+[yyyy-mm]-MM-[rows].dat    Minutes,Mode  without Header by choose (fortran) from MMSVT
+[yyyy-mm]-MMSVT-[rows].dat Minutes,Mode,Scale,Volume,Ticks by MMSVT.jl from Ticks
+Ticks[yyyymm].csv  Time (UTC),Ask,Bid,AskVolume,BidVolume from Dukascopy
+[yyyy-mm]-STV-[rows].dat   Seconds,Tick(Ask,Bid,multi),Volume(idem) without Header by stv.C
+root and matrix files as needed
