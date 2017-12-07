@@ -1,26 +1,28 @@
+#include <fstream>
+#include <sstream>
+#include <iostream>
+#include <string>
+#include <ctime>
 #include <iterator>
 #include <utility>
 #include <algorithm>
 #include <list>
 #include <vector>
-#include <iostream>
-#include <fstream>
-#include <iterator>
-#include <algorithm>
 #include <iomanip>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string>
-
+#include <cstdlib>
 
 using namespace std;
+
+int make_tick_volume_file (const string filename, const int id);
+
+int make_volume_mode_file (const string filename, const int id);
 
 //helper struct
 template<typename T> struct referring
 {
   referring(T const& t): value(t) {}
   template<typename Iter>
-  bool operator()(std::pair<Iter, int> const& p) const
+  bool operator()(pair<Iter, int> const& p) const
   {
     return *p.first == value;
   }
@@ -32,15 +34,15 @@ template<typename T> struct referring
 template<typename FwdIterator, typename OutIterator>
 void mode(FwdIterator first, FwdIterator last, OutIterator result)
 {
-  typedef typename std::iterator_traits<FwdIterator>::value_type value_type;
-  typedef std::list<std::pair<FwdIterator, int> > count_type;
+  typedef typename iterator_traits<FwdIterator>::value_type value_type;
+  typedef list<pair<FwdIterator, int> > count_type;
   typedef typename count_type::iterator count_iterator;
   count_type counts;  //count elements
   while (first != last)  //(first, last) is a valid range
     {
-      count_iterator element = std::find_if(counts.begin(), counts.end(),
+      count_iterator element = find_if(counts.begin(), counts.end(),
                                             referring<value_type>(*first));
-      if (element == counts.end()) counts.push_back(std::make_pair(first, 1));
+      if (element == counts.end()) counts.push_back(make_pair(first, 1));
       else ++element->second;
       ++first;
     }

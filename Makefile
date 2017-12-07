@@ -1,5 +1,5 @@
-OFILES = hvmm.o
-TARGET = hvmm
+OFILES = main.o tv.o vmm.o
+TARGET = protazy
 # root-config --cxx >>Makefile
 CC = c++
 # root-config --cflags >>Makefile
@@ -13,5 +13,7 @@ $(TARGET): $(OFILES)
 clean:
 	rm -f $(OFILES) $(TARGET)
 
-# below this is the output of "gcc -MM smstv.C >>Makefile":
-hvmm.o: hvmm.C hvmm.hpp
+# below this is the output of "gcc -MM datroot.C ... >>Makefile":
+main.o: main.C tv.hpp
+tv.o: tv.C tv.hpp
+vmm.o: vmm.C tv.hpp
