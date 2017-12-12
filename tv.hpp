@@ -14,8 +14,9 @@
 using namespace std;
 
 int make_tick_volume_file (const string filename, const int id);
-
 int make_volume_mode_file (const string filename, const int id);
+int make_weight_file (const string filename, const int id);
+int make_mode_file (const string filename, const int id);
 
 //helper struct
 template<typename T> struct referring
