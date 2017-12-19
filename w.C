@@ -1,9 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <scythestat/matrix.h>
+
 #include "tv.hpp"
 
 using namespace std;
+using namespace scythe;
 
 int make_weight_file (const string filename, const int id)
 {
@@ -30,15 +33,15 @@ int make_weight_file (const string filename, const int id)
     break;
   case 5:
     outFile = dateFile+"-TW.dat";
-  	inFile = dateFile+"-TVMM.dat";
+  	Matrix<> W(1, 1);
+    W = 1.000000e+00;
+    W.save(outFile);
     break;
       }
-
-  command = "rescale -c2 -o "+outFile+" "+inFile;
-
-  const char * command_char = command.c_str();  //convert string to char*
-
-  system(command_char);
-
+  if(id != 5) {
+    command = "rescale -c2 -o "+outFile+" "+inFile;
+    const char * command_char = command.c_str();  //convert string to char*
+    system(command_char);
+  }
   return 0;
 }
