@@ -12,7 +12,10 @@ $(TARGET): $(OFILES)
 	$(CC) $(OFILES) $(LIBS) -o $@
 
 clean:
-	rm -f $(OFILES) $(TARGET)
+			rm -f $(OFILES)
+
+clean_all:
+			rm -f $(OFILES) $(TARGET)
 
 # below this is the output of "gcc -MM datroot.C ... >>Makefile":
 main.o: main.C tv.hpp

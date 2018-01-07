@@ -16,23 +16,23 @@ int make_volume_mode_file (const string filename, const int id)
   string inFile;
   switch(id) {
   case 1:
-    outFile = dateFile+"-SVMM.dat";
+    outFile = dateFile+"-SVHLMM.dat";
   	inFile = dateFile+"-STV.dat";
     break;
   case 2:
-    outFile = dateFile+"-MVMM.dat";
+    outFile = dateFile+"-MVHLMM.dat";
   	inFile = dateFile+"-MTV.dat";
     break;
   case 3:
-    outFile = dateFile+"-HVMM.dat";
+    outFile = dateFile+"-HVHLMM.dat";
   	inFile = dateFile+"-HTV.dat";
     break;
   case 4:
-    outFile = dateFile+"-DVMM.dat";
+    outFile = dateFile+"-DVHLMM.dat";
   	inFile = dateFile+"-DTV.dat";
     break;
   case 5:
-    outFile = dateFile+"-TVMM.dat";
+    outFile = dateFile+"-TVHLMM.dat";
   	inFile = dateFile+"-TTV.dat";
     break;
       }
@@ -42,7 +42,7 @@ int make_volume_mode_file (const string filename, const int id)
   fstream newFile;
   newFile.open(outFile, ios::out | ios::app);  //line by line
 
-  float Tick, Volume, TVolume;
+  float Tick, Volume, TVolume, maximum, minimum;
   int line_nb = 0;
   int first, pass, Epoch;
   vector <float> dynValues(0); //dynamic array
@@ -56,6 +56,8 @@ int make_volume_mode_file (const string filename, const int id)
       if (line_nb == 0)
         {
           first = pass = Epoch;
+          maximum = Tick;
+          minimum = Tick;
         }
       if (Epoch > pass)
         {
@@ -71,16 +73,24 @@ int make_volume_mode_file (const string filename, const int id)
           newFile << " ";
           newFile << setprecision(4);
           float* values = dynValues.data();
+          newFile << maximum;
+          newFile << " ";
+          newFile << minimum;
+          newFile << " ";
           mode(values, values + sizeof(values)/sizeof(float),
                std::ostream_iterator<float>(newFile, " "));
           newFile << endl;
           //===============
           pass = Epoch;
           TVolume = 0;
+          maximum = Tick;
+          minimum = Tick;
           dynValues.clear();
         }
       dynValues.push_back(Tick);
       TVolume += Volume;
+      if (maximum < Tick) maximum = Tick;
+      if (minimum > Tick) minimum = Tick;
       line_nb++;
     }
   //============================
@@ -94,6 +104,10 @@ int make_volume_mode_file (const string filename, const int id)
   newFile << " ";
   newFile << setprecision(4);
   float* values = dynValues.data();
+  newFile << maximum;
+  newFile << " ";
+  newFile << minimum;
+  newFile << " ";
   mode(values, values + sizeof(values)/sizeof(float),
        std::ostream_iterator<float>(newFile, " "));
   newFile << endl;

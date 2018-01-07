@@ -1,13 +1,28 @@
 [yyyy-mm]-Ticks.csv  Time (UTC), Ask, Bid, AskVolume, BidVolume
 ===============================================================
 
-protazy -> [yyyy-mm]-STV.dat    Epoch Seconds, Tick(Ask & Bid),   Volume(Ask & Bid)
-           [yyyy-mm]-MTV.dat    Epoch Minutes, Tick(Ask & Bid),   Volume(Ask & Bid)
-           [yyyy-mm]-HTV.dat    Epoch Hours,   Tick(Ask & Bid),   Volume(Ask & Bid)
-           [yyyy-mm]-DTV.dat    Epoch Days,    Tick(Ask & Bid),   Volume(Ask & Bid)
-           [yyyy-mm]-TTV.dat    Epoch Months,  Tick(Ask & Bid),   Volume(Ask & Bid)
-           [yyyy-mm]-SVMM.dat   Epoch Seconds, Volume(Ask & Bid), Mode, Mode
-           [yyyy-mm]-MVMM.dat   Epoch Minutes, Volume(Ask & Bid), Mode, Mode
-           [yyyy-mm]-HVMM.dat   Epoch Hours,   Volume(Ask & Bid), Mode, Mode
-           [yyyy-mm]-DVMM.dat   Epoch Days,    Volume(Ask & Bid), Mode, Mode
-           [yyyy-mm]-TVMM.dat   Epoch Months,  Volume(Ask & Bid), Mode, Mode
+protazy -> [yyyy-mm]-STV.dat      Epoch Seconds, Tick(Ask & Bid), Volume(Ask & Bid)
+           [yyyy-mm]-MTV.dat      Epoch Minutes, Tick(Ask & Bid), Volume(Ask & Bid)
+           [yyyy-mm]-HTV.dat      Epoch Hours,   Tick(Ask & Bid), Volume(Ask & Bid)
+           [yyyy-mm]-DTV.dat      Epoch Days,    Tick(Ask & Bid), Volume(Ask & Bid)
+           [yyyy-mm]-TTV.dat      Epoch Months,  Tick(Ask & Bid), Volume(Ask & Bid)
+           [yyyy-mm]-SVHLMM.dat   Epoch Seconds, Volume(Ask & Bid), High, Low, Mode, Mode
+           [yyyy-mm]-MVHLMM.dat   Epoch Minutes, Volume(Ask & Bid), High, Low, Mode, Mode
+           [yyyy-mm]-HVHLMM.dat   Epoch Hours,   Volume(Ask & Bid), High, Low, Mode, Mode
+           [yyyy-mm]-DVHLMM.dat   Epoch Days,    Volume(Ask & Bid), High, Low, Mode, Mode
+           [yyyy-mm]-TVHLMM.dat   Epoch Months,  Volume(Ask & Bid), High, Low, Mode, Mode
+           [yyyy-mm]-SMHL.dat     Epoch Seconds, Mode, High, Low
+           [yyyy-mm]-MMHL.dat     Epoch Minutes, Mode, High, Low
+           [yyyy-mm]-HMHL.dat     Epoch Hours,   Mode, High, Low
+           [yyyy-mm]-DMHL.dat     Epoch Days,    Mode, High, Low
+           [yyyy-mm]-TMHL.dat     Epoch Months,  Mode, High, Low
+           [yyyy-mm]-sW.dat       Weighted Volume (seconds)
+           [yyyy-mm]-mW.dat       Weighted Volume (minutes)
+           [yyyy-mm]-hW.dat       Weighted Volume (hours)
+           [yyyy-mm]-dW.dat       Weighted Volume (days)
+           [yyyy-mm]-tW.dat       Weighted Volume (months)
+           [yyyy-mm]-sM.dat       Mode (seconds)
+           [yyyy-mm]-mM.dat       Mode (minutes)
+           [yyyy-mm]-hM.dat       Mode (hours)
+           [yyyy-mm]-dM.dat       Mode (days)
+           [yyyy-mm]-tM.dat       Mode (months)

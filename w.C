@@ -16,23 +16,23 @@ int make_weight_file (const string filename, const int id)
   string command;
   switch(id) {
   case 1:
-    outFile = dateFile+"-SW.dat";
-  	inFile = dateFile+"-SVMM.dat";
+    outFile = dateFile+"-sW.dat";
+  	inFile = dateFile+"-SVHLMM.dat";
     break;
   case 2:
-    outFile = dateFile+"-MW.dat";
-  	inFile = dateFile+"-MVMM.dat";
+    outFile = dateFile+"-mW.dat";
+  	inFile = dateFile+"-MVHLMM.dat";
     break;
   case 3:
-    outFile = dateFile+"-HW.dat";
-  	inFile = dateFile+"-HVMM.dat";
+    outFile = dateFile+"-hW.dat";
+  	inFile = dateFile+"-HVHLMM.dat";
     break;
   case 4:
-    outFile = dateFile+"-DW.dat";
-  	inFile = dateFile+"-DVMM.dat";
+    outFile = dateFile+"-dW.dat";
+  	inFile = dateFile+"-DVHLMM.dat";
     break;
   case 5:
-    outFile = dateFile+"-TW.dat";
+    outFile = dateFile+"-tW.dat";
   	Matrix<> W(1, 1);
     W = 1.000000e+00;
     W.save(outFile);
