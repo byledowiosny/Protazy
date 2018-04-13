@@ -17,6 +17,9 @@ int make_tick_volume_file (const string filename, const int id);
 int make_volume_mode_file (const string filename, const int id);
 int make_weight_file (const string filename, const int id);
 int make_mode_file (const string filename, const int id);
+int make_scale_file (const string filename, const int id);
+int make_scalebis_file (const string filename, const int id);
+int make_rm_file (const string filename, const int id);
 
 //helper struct
 template<typename T> struct referring
@@ -54,17 +57,4 @@ void mode(FwdIterator first, FwdIterator last, OutIterator result)
   for (count_iterator i = counts.begin(); i != counts.end(); ++i)
     if (i->second == max)
       *result++ = *i->first;  //the mode is wtitten to result
-}
-
-#include <algorithm>
-#include <cassert>
- 
-template<typename Ty> Ty max(unsigned int count, Ty values[]) {
-     assert(count > 0);
-     return *std::max_element(values, values + count);
-}
-
-template<typename Ty> Ty min(unsigned int count, Ty values[]) {
-     assert(count > 0);
-     return *std::min_element(values, values + count);
 }

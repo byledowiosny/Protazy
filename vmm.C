@@ -44,15 +44,16 @@ int make_volume_mode_file (const string filename, const int id)
 
   float Tick, Volume, TVolume, maximum, minimum;
   int line_nb = 0;
+  //int first, pass, Epoch;
   int first, pass, Epoch;
   vector <float> dynValues(0); //dynamic array
 
   const int LINE_LENGTH = 60;  //with some free places to live
   char line[LINE_LENGTH];
 
-  while (fgets(line, LINE_LENGTH, stvFile) != NULL)  //stdin with "<" is possible too
+  while (fgets(line, LINE_LENGTH, stvFile) != NULL)
     {
-      sscanf(&line[0],"%d,%f,%f",&Epoch,&Tick,&Volume);  //from c: simple and effective
+      sscanf(&line[0],"%d %f %f",&Epoch,&Tick,&Volume);  //from c: simple and effective
       if (line_nb == 0)
         {
           first = pass = Epoch;
@@ -63,10 +64,7 @@ int make_volume_mode_file (const string filename, const int id)
         {
           //===============
         	newFile << fixed;
-          //time (epoch) absolute
           newFile << pass;
-          //or time (epoch) relative to first in month
-          //newFile << pass - first;
           newFile << " ";
           newFile << setprecision(2);
           newFile << TVolume;
@@ -97,7 +95,6 @@ int make_volume_mode_file (const string filename, const int id)
   //This is for the last pass.
   newFile << fixed;
   newFile << pass;
-  //newFile << pass - first;
   newFile << " ";
   newFile << setprecision(2);
   newFile << TVolume;
